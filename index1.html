@@ -1,0 +1,164 @@
+<! DOCTYPE html>
+<html lang="en">
+  <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>GOLD/USD Live chart</title>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+     <style>
+         *{
+             margin: 0;
+             padding: 0;
+             box-sizing: border-box;
+         }
+         
+         body{
+             font-family: Sans-Serif;
+             background-color: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+             padding: 20px;
+             min-height: 100vh;
+         }
+         
+         .container {
+             max-width: 1200px;
+             margin: 0 auto;
+             background: white;
+             border-radius: 15px;
+             padding: 30px;
+             box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+         }
+         
+         .header {
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
+             margin-bottom: 30px;
+             flex-wrap: wrap;
+             gap: 20px;
+         }
+         
+         h1 {
+             color: #1e3c72;
+             font-size: 28px;
+         }
+         
+         .price-info {
+             display: flex;
+             gap: 30px;
+             align-items: center;
+         }
+         
+         .price-box {
+             text-align: center;
+         }
+         
+         .price-label {
+             font-size: 12px;
+             color: #666;
+             text-transform: uppercase;
+             letter-spacing: 1px;
+         }
+         
+         .price-value {
+             font-size: 24px;
+             font-weight: bold;
+             color: #1e3c72;
+             margin-top: 5px;
+         }
+         
+         .price-change {
+             font-size: 14px;
+             margin-top: 3px;
+         }
+         
+         .positive {
+             color: #22c55e;
+         }
+         
+         .negative {
+             color: #ef4444;
+         }
+         
+         .chart-container {
+             position: relative;
+             height: 400px;
+             margin-bottom: 20px;
+         }
+         
+         .controls {
+             display: flex;
+             gap: 10px;
+             flex-wrap: wrap;
+         }
+         
+         button {
+             padding: 10px 20px;
+             border: none;
+             border-radius: 5px;
+             background: #1e3c72;
+             color: white;
+             cursor: pointer;
+             font-size: 14px;
+             transition: background 0.3s;
+         }
+         
+         button:hover {
+             background: 2a5298;
+         }
+         
+         button:active {
+             transform: scale(0.98);
+         }
+         
+         .status {
+             display: inline-block;
+             padding: 5px 10px;
+             border-radius: 5px;
+             font-size: 12px;
+             font-weight: bold;
+         }
+         
+         .status-live {
+             background: #22c55e;
+             color: white;
+         }
+         
+         .status.paused {
+             background: #f59e0b;
+             color: white;
+         }
+         
+     </style>
+  </head> 
+  <body>
+      <div class="container">
+          <div class="header">
+              <div>
+                  <h1>GOLD/USD LIVE PRICE CHART</h1>
+                  <span class="status live" id="status">⚫ Live<span>
+              </div>
+              <div class="price-info">
+               <div class="price-box">
+                <div class="price-label">Current price</div>
+                <div class="price-value" id="currentPrice">$2,650.00</div>
+                <div class="price-change" id="priceChange">---</div>
+               </div>   
+              </div>
+          </div>
+          
+          <div class="chart-container">
+              <canvas id="goldChart"></canvas>
+          </div>
+          
+          <div class="controls">
+              <button id="toggleBtn">Pause Updates </button>
+              <button id="resetBtn">Reset Chart</button>
+              
+          </div>
+          
+      </div>
+      
+   <script src="script.js"></script>  
+  </body>
+    
+</html>
