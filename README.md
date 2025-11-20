@@ -1,0 +1,2 @@
+# Gold-USD-Live-chart-
+GOLD/USD LIVE CHART IN JAVASCRIPT 
